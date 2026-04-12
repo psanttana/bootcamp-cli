@@ -3,7 +3,7 @@
 ## Identificação do Aluno
 
 **Nome Completo:** Pedro Saldanha Santana
-**Nome da Disciplina:** Desenvolvimento de Software Moderno (Exemplo)
+**Nome da Disciplina:** BootCamp II
 
 ## Identificação do Projeto
 
