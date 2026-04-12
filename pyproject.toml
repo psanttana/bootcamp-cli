@@ -1,0 +1,22 @@
+[project]
+name = "foodbridge"
+version = "1.0.0"
+description = "Gerenciador de Doações de Alimentos CLI"
+authors = [
+    { name = "Desenvolvedor Manus", email = "manus@example.com" }
+]
+dependencies = [
+    "pytest==8.1.1",
+    "ruff==0.3.4"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "C90", "I"]
+ignore = []
+
+[tool.ruff]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
