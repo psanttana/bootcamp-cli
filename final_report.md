@@ -2,7 +2,7 @@
 
 ## Identificação do Aluno
 
-**Nome Completo:** Desenvolvedor Manus
+**Nome Completo:** psanttana
 **Nome da Disciplina:** Desenvolvimento de Software Moderno (Exemplo)
 
 ## Identificação do Projeto
@@ -15,6 +15,6 @@ O FoodBridge CLI é uma aplicação de linha de comando em Python que visa conec
 
 ## Link do Repositório Público no GitHub
 
-[https://github.com/SEU_USUARIO/foodbridge](https://github.com/SEU_USUARIO/foodbridge)
+[https://github.com/psanttana/bootcamp-cli](https://github.com/psanttana/bootcamp-cli)
 
-**Observação:** Substitua `SEU_USUARIO` pelo seu nome de usuário do GitHub ao publicar o projeto.
+

@@ -49,7 +49,7 @@ Para configurar e executar o FoodBridge CLI em sua máquina local, siga os passo
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/SEU_USUARIO/foodbridge.git
+    git clone https://github.com/psanttana/bootcamp-cli.git
     cd foodbridge
     ```
 
@@ -106,7 +106,7 @@ Desenvolvedor Manus
 
 ## 🔗 Link do Repositório Público
 
-[https://github.com/SEU_USUARIO/foodbridge](https://github.com/SEU_USUARIO/foodbridge)
+[https://github.com/psanttana/bootcamp-cli](https://github.com/psanttana/bootcamp-cli)
 
 ---
 
