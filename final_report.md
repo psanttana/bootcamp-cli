@@ -2,7 +2,7 @@
 
 ## Identificação do Aluno
 
-**Nome Completo:** psanttana
+**Nome Completo:** Pedro Saldanha Santana
 **Nome da Disciplina:** Desenvolvimento de Software Moderno (Exemplo)
 
 ## Identificação do Projeto
@@ -16,5 +16,3 @@ O FoodBridge CLI é uma aplicação de linha de comando em Python que visa conec
 ## Link do Repositório Público no GitHub
 
 [https://github.com/psanttana/bootcamp-cli](https://github.com/psanttana/bootcamp-cli)
-
-

@@ -3,7 +3,7 @@ name = "foodbridge"
 version = "1.0.0"
 description = "Gerenciador de Doações de Alimentos CLI"
 authors = [
-    { name = "Desenvolvedor Manus", email = "manus@example.com" }
+    { name = "Pedro Saldanha Santana", email = "psanttana@example.com" }
 ]
 dependencies = [
     "pytest==8.1.1",

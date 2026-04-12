@@ -50,7 +50,7 @@ Para configurar e executar o FoodBridge CLI em sua máquina local, siga os passo
 
     ```bash
     git clone https://github.com/psanttana/bootcamp-cli.git
-    cd foodbridge
+    cd bootcamp-cli
     ```
 
 2.  **Crie e ative um ambiente virtual (recomendado):**
@@ -102,7 +102,7 @@ ruff check . --fix
 
 ## ✍️ Autor
 
-Desenvolvedor Manus
+**Pedro Saldanha Santana**
 
 ## 🔗 Link do Repositório Público
 
