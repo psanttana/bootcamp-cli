@@ -1,6 +1,6 @@
-from datetime import datetime
 import json
 import os
+from datetime import datetime
 
 import requests
 
@@ -84,61 +84,80 @@ class FoodBridge:
         raise ValueError("Doação não encontrada.")
 
 
+def handle_add_donation(app):
+    donor = input("Nome do Doador: ")
+    item = input("Item Alimentar: ")
+    qty = input("Quantidade (ex: 5kg, 10 unidades): ")
+    expiry = input("Data de Validade (AAAA-MM-DD): ")
+    use_cep = input("Deseja informar o CEP para o endereço? (s/n): ").lower()
+    cep = None
+    if use_cep == "s":
+        cep = input("Digite o CEP: ")
+
+    try:
+        app.add_donation(donor, item, qty, expiry, cep)
+        print("✅ Doação registrada com sucesso!")
+    except (ValueError, ConnectionError) as e:
+        print(f"❌ Erro: {e}")
+
+
+def handle_list_donations(app):
+    donations = app.list_donations()
+    if not donations:
+        print("Nenhuma doação disponível no momento.")
+    for d in donations:
+        addr = d.get("address", "Não informado")
+        print(
+            f"[{d['id']}] {d['item']} - {d['quantity']} "
+            f"(Validade: {d['expiry']}) | Doador: {d['donor']} | "
+            f"Endereço: {addr}"
+        )
+
+
+def handle_claim_donation(app):
+    try:
+        d_id = int(input("ID da doação para coletar: "))
+        receiver = input("Nome da Entidade Receptora: ")
+        app.claim_donation(d_id, receiver)
+        print("✅ Doação marcada como coletada!")
+    except ValueError as e:
+        print(f"❌ Erro: {e}")
+
+
+def handle_search_address(app):
+    cep = input("Digite o CEP para buscar o endereço: ")
+    try:
+        address = app.get_address_by_cep(cep)
+        print(f"📍 Endereço encontrado: {address}")
+    except (ValueError, ConnectionError) as e:
+        print(f"❌ Erro: {e}")
+
+
 def main():
     app = FoodBridge()
     print("=== FoodBridge CLI - Gerenciador de Doações de Alimentos ===")
-    print("1. Adicionar Doação")
-    print("2. Listar Doações Disponíveis")
-    print("3. Coletar Doação")
-    print("4. Buscar Endereço por CEP")
-    print("5. Sair")
+
+    menu = {
+        "1": ("Adicionar Doação", handle_add_donation),
+        "2": ("Listar Doações Disponíveis", handle_list_donations),
+        "3": ("Coletar Doação", handle_claim_donation),
+        "4": ("Buscar Endereço por CEP", handle_search_address),
+        "5": ("Sair", None),
+    }
 
     while True:
-        choice = input("\nEscolha uma opção: ")
-        if choice == "1":
-            donor = input("Nome do Doador: ")
-            item = input("Item Alimentar: ")
-            qty = input("Quantidade (ex: 5kg, 10 unidades): ")
-            expiry = input("Data de Validade (AAAA-MM-DD): ")
-            use_cep = input("Deseja informar o CEP para o endereço? (s/n): ").lower()
-            cep = None
-            if use_cep == 's':
-                cep = input("Digite o CEP: ")
+        for key, (label, _) in menu.items():
+            print(f"{key}. {label}")
 
-            try:
-                app.add_donation(donor, item, qty, expiry, cep)
-                print("✅ Doação registrada com sucesso!")
-            except (ValueError, ConnectionError) as e:
-                print(f"❌ Erro: {e}")
-        elif choice == "2":
-            donations = app.list_donations()
-            if not donations:
-                print("Nenhuma doação disponível no momento.")
-            for d in donations:
-                addr = d.get('address', 'Não informado')
-                print(
-                    f"[{d['id']}] {d['item']} - {d['quantity']} "
-                    f"(Validade: {d['expiry']}) | Doador: {d['donor']} | "
-                    f"Endereço: {addr}"
-                )
-        elif choice == "3":
-            try:
-                d_id = int(input("ID da doação para coletar: "))
-                receiver = input("Nome da Entidade Receptora: ")
-                app.claim_donation(d_id, receiver)
-                print("✅ Doação marcada como coletada!")
-            except ValueError as e:
-                print(f"❌ Erro: {e}")
-        elif choice == "4":
-            cep = input("Digite o CEP para buscar o endereço: ")
-            try:
-                address = app.get_address_by_cep(cep)
-                print(f"📍 Endereço encontrado: {address}")
-            except (ValueError, ConnectionError) as e:
-                print(f"❌ Erro: {e}")
-        elif choice == "5":
+        choice = input("\nEscolha uma opção: ")
+
+        if choice == "5":
             print("Saindo... Até logo!")
             break
+
+        if choice in menu:
+            _, func = menu[choice]
+            func(app)
         else:
             print("Opção inválida.")
 
