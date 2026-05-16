@@ -1,6 +1,7 @@
+from datetime import datetime
 import json
 import os
-from datetime import datetime
+
 import requests
 
 
@@ -26,12 +27,17 @@ class FoodBridge:
             raise ValueError("CEP inválido. Deve conter 8 dígitos numéricos.")
 
         try:
-            response = requests.get(f"https://viacep.com.br/ws/{cep}/json/", timeout=10)
+            url = f"https://viacep.com.br/ws/{cep}/json/"
+            response = requests.get(url, timeout=10)
             response.raise_for_status()
             data = response.json()
             if "erro" in data:
                 raise ValueError("CEP não encontrado.")
-            return f"{data['logradouro']}, {data['bairro']}, {data['localidade']} - {data['uf']}"
+            address = (
+                f"{data['logradouro']}, {data['bairro']}, "
+                f"{data['localidade']} - {data['uf']}"
+            )
+            return address
         except requests.RequestException:
             raise ConnectionError("Erro ao conectar com a API ViaCEP.")
 
@@ -98,7 +104,7 @@ def main():
             cep = None
             if use_cep == 's':
                 cep = input("Digite o CEP: ")
-            
+
             try:
                 app.add_donation(donor, item, qty, expiry, cep)
                 print("✅ Doação registrada com sucesso!")
@@ -112,7 +118,8 @@ def main():
                 addr = d.get('address', 'Não informado')
                 print(
                     f"[{d['id']}] {d['item']} - {d['quantity']} "
-                    f"(Validade: {d['expiry']}) | Doador: {d['donor']} | Endereço: {addr}"
+                    f"(Validade: {d['expiry']}) | Doador: {d['donor']} | "
+                    f"Endereço: {addr}"
                 )
         elif choice == "3":
             try:

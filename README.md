@@ -11,7 +11,7 @@ O **FoodBridge CLI** é uma aplicação de linha de comando desenvolvida em Pyth
 
 ### Qual problema estou tentando resolver?
 
-O Brasil enfrenta um paradoxo alarmante: enquanto milhões de pessoas sofrem com a fome, uma quantidade significativa de alimentos é desperdiçada diariamente. Restaurantes, supermercados e outros estabelecimentos frequentemente descartam alimentos que ainda estão em boas condições para consumo, seja por proximidade da data de validade, pequenos defeitos estéticos ou excesso de estoque. A falta de um sistema eficiente para gerenciar e direcionar essas sobras contribui para o agravamento da insegurança alimentar e para o impacto ambiental do descarte de orgânicos.
+O desperdício de alimentos em estabelecimentos comerciais é um problema crítico. Muitos produtos em bom estado são descartados por falta de logística ou gestão eficiente, enquanto diversas entidades receptoras carecem de doações regulares.
 
 ### Quem é afetado por esse problema?
 
@@ -22,7 +22,7 @@ O Brasil enfrenta um paradoxo alarmante: enquanto milhões de pessoas sofrem com
 
 ### Como minha aplicação ajuda, mesmo que de forma simples?
 
-O FoodBridge CLI atua como uma ponte digital, simplificando o processo de doação e coleta de alimentos. Ele permite que doadores registrem facilmente os itens disponíveis, suas quantidades e datas de validade. As entidades receptoras podem visualizar as doações disponíveis e marcá-las como coletadas, garantindo que os alimentos cheguem a quem precisa de forma ágil. Embora seja uma solução simples, ela oferece uma ferramenta prática para organizar e otimizar o fluxo de doações, reduzindo o desperdício e alimentando pessoas.
+O FoodBridge CLI facilita a conexão entre doadores e receptores. A ferramenta permite o registro de itens, controle de validade e localização via CEP, otimizando a coleta e reduzindo o descarte desnecessário.
 
 ## 🎯 Público-Alvo
 
