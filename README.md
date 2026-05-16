@@ -1,10 +1,13 @@
 # FoodBridge CLI - Gerenciador de Doações de Alimentos
 
-##  Visão Geral
+## 🚀 Etapa Intermediária - Bootcamp
+Esta versão inclui a integração com a API pública **ViaCEP** para validação de endereços e testes de integração automatizados.
+
+## 📋 Visão Geral
 
 O **FoodBridge CLI** é uma aplicação de linha de comando desenvolvida em Python para conectar doadores de alimentos (como restaurantes e supermercados) a entidades receptoras (ONGs, abrigos, bancos de alimentos). Seu objetivo principal é combater o desperdício de alimentos e a insegurança alimentar, facilitando o registro, a listagem e a coleta de doações de forma eficiente e organizada.
 
-##  Problema Real e Proposta da Solução
+## 💡 Problema Real e Proposta da Solução
 
 ### Qual problema estou tentando resolver?
 
@@ -21,28 +24,30 @@ O Brasil enfrenta um paradoxo alarmante: enquanto milhões de pessoas sofrem com
 
 O FoodBridge CLI atua como uma ponte digital, simplificando o processo de doação e coleta de alimentos. Ele permite que doadores registrem facilmente os itens disponíveis, suas quantidades e datas de validade. As entidades receptoras podem visualizar as doações disponíveis e marcá-las como coletadas, garantindo que os alimentos cheguem a quem precisa de forma ágil. Embora seja uma solução simples, ela oferece uma ferramenta prática para organizar e otimizar o fluxo de doações, reduzindo o desperdício e alimentando pessoas.
 
-##  Público-Alvo
+## 🎯 Público-Alvo
 
 *   Pequenos e médios restaurantes, padarias, mercados e hortifrutis que desejam doar alimentos.
 *   Organizações não governamentais (ONGs), abrigos, cozinhas comunitárias e bancos de alimentos que buscam doações.
 *   Voluntários e indivíduos que atuam na logística de coleta e distribuição de alimentos.
 
-##  Funcionalidades Principais
+## ✨ Funcionalidades Principais
 
-*   **Registro de Doações:** Permite que doadores adicionem novos itens, especificando nome do doador, item, quantidade e data de validade.
-*   **Listagem de Doações:** Exibe todas as doações disponíveis, com detalhes como ID, item, quantidade, validade e doador.
+*   **Registro de Doações com Endereço:** Permite que doadores adicionem novos itens, especificando nome do doador, item, quantidade, data de validade e endereço (validado via CEP).
+*   **Integração com ViaCEP:** Busca automática de endereço a partir do CEP informado.
+*   **Listagem de Doações:** Exibe todas as doações disponíveis, com detalhes como ID, item, quantidade, validade, doador e endereço.
 *   **Coleta de Doações:** Permite que entidades receptoras marquem uma doação como coletada, registrando o nome da entidade.
-*   **Armazenamento Persistente:** Utiliza um arquivo JSON (`donations.json`) para armazenar os dados das doações, garantindo que as informações não sejam perdidas ao encerrar a aplicação.
+*   **Armazenamento Persistente:** Utiliza um arquivo JSON (`donations.json`) para armazenar os dados das doações.
 
-##  Tecnologias Utilizadas
+## 🛠 Tecnologias Utilizadas
 
 *   **Linguagem:** Python 3.x
+*   **Bibliotecas Externas:** `requests` (para integração com API)
 *   **Gerenciamento de Dependências:** `pip` e `requirements.txt`
-*   **Testes:** `pytest`
+*   **Testes:** `pytest` (incluindo testes de integração)
 *   **Análise Estática de Código (Linting):** `ruff`
 *   **Integração Contínua:** GitHub Actions
 
-##  Instalação
+## ⚙️ Instalação
 
 Para configurar e executar o FoodBridge CLI em sua máquina local, siga os passos abaixo:
 
@@ -66,7 +71,7 @@ Para configurar e executar o FoodBridge CLI em sua máquina local, siga os passo
     pip install -r requirements.txt
     ```
 
-##  Como Executar
+## 🚀 Como Executar
 
 Após a instalação das dependências, você pode iniciar a aplicação:
 
@@ -74,69 +79,60 @@ Após a instalação das dependências, você pode iniciar a aplicação:
 python src/app.py
 ```
 
-##  Como Rodar os Testes
+## 🧪 Como Rodar os Testes
 
-Para executar os testes automatizados do projeto, certifique-se de que as dependências estão instaladas e execute:
+Para executar os testes automatizados (unitários e de integração):
 
 ```bash
 pytest
 ```
 
-##  Como Rodar o Lint
+## 🧹 Como Rodar o Lint
 
-Para verificar a qualidade do código e aderência a padrões de estilo com `ruff`:
+Para verificar a qualidade do código com `ruff`:
 
 ```bash
 ruff check .
 ```
 
-Para corrigir automaticamente alguns problemas de linting:
+## 📦 Deploy
 
-```bash
-ruff check . --fix
-```
+Como esta é uma aplicação CLI, o "deploy" consiste na disponibilização do código no GitHub. Para aplicações que necessitam de execução em nuvem, recomenda-se o uso de plataformas como **Render** ou **Heroku** para scripts Python, ou simplesmente a execução via **Docker**.
 
-##  Versão Atual
+## 📄 Versão Atual
 
-`1.0.0`
+`1.1.0` (Etapa Intermediária)
 
-##  Autor
+## 👤 Autor
 
 **Pedro Saldanha Santana**
 
-##  Link do Repositório Público
+## 🔗 Link do Repositório Público
 
 [https://github.com/psanttana/bootcamp-cli](https://github.com/psanttana/bootcamp-cli)
 
 ---
 
-##  Exemplos de Uso (Saída do Terminal)
+## 🖥 Exemplos de Uso (Saída do Terminal)
 
 ```
 === FoodBridge CLI - Gerenciador de Doações de Alimentos ===
 1. Adicionar Doação
 2. Listar Doações Disponíveis
 3. Coletar Doação
-4. Sair
+4. Buscar Endereço por CEP
+5. Sair
+
+Escolha uma opção: 4
+Digite o CEP para buscar o endereço: 01001000
+📍 Endereço encontrado: Praça da Sé, Sé, São Paulo - SP
 
 Escolha uma opção: 1
 Nome do Doador: Padaria Central
 Item Alimentar: Pães
-Quantidade (ex: 5kg, 10 unidades): 20 unidades
+Quantidade: 20 unidades
 Data de Validade (AAAA-MM-DD): 2026-04-15
- Doação registrada com sucesso!
-
-Escolha uma opção: 2
-[1] Pães - 20 unidades (Validade: 2026-04-15) | Doador: Padaria Central
-
-Escolha uma opção: 3
-ID da doação para coletar: 1
-Nome da Entidade Receptora: Abrigo Esperança
- Doação marcada como coletada!
-
-Escolha uma opção: 2
-Nenhuma doação disponível no momento.
-
-Escolha uma opção: 4
-Saindo... Até logo!
+Deseja informar o CEP para o endereço? (s/n): s
+Digite o CEP: 01001000
+✅ Doação registrada com sucesso!
 ```
